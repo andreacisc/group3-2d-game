@@ -5,6 +5,6 @@
 [node name="Node2D" type="Node2D"]
 
 [node name="Player_Icon" type="Sprite2D" parent="."]
-position = Vector2(141, 156)
+position = Vector2(102, 91)
 scale = Vector2(0.34375, 0.375)
 texture = ExtResource("1_ftcaf")
