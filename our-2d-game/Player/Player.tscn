@@ -132,7 +132,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_k73cj")
 }],
 "loop": true,
-"name": &"Left_and_Right",
+"name": &"Left",
 "speed": 12.0
 }]
 
@@ -161,9 +161,30 @@ shape = SubResource("CapsuleShape2D_kpjcp")
 position = Vector2(507.75, 305.50003)
 scale = Vector2(0.05441167, 0.046000008)
 sprite_frames = SubResource("SpriteFrames_rjqkl")
-animation = &"Idle"
-frame_progress = 0.112317756
+animation = &"Left"
 
 [node name="Camera2D" type="Camera2D" parent="Player_Physics"]
 position = Vector2(508, 305)
 zoom = Vector2(12, 12)
+
+[node name="MarginContainer" type="MarginContainer" parent="Player_Physics"]
+show_behind_parent = true
+offset_left = 460.0
+offset_top = 278.0
+offset_right = 556.0
+offset_bottom = 332.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Player_Physics/MarginContainer"]
+layout_mode = 2
+
+[node name="Health" type="Label" parent="Player_Physics/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 7
+
+[node name="Samples" type="Label" parent="Player_Physics/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 7
+
+[node name="Stims" type="Label" parent="Player_Physics/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 7
