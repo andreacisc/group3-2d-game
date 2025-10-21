@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://c5dhrft4trb2g"
+path="res://.godot/imported/alien-talk-1.wav-cb9f1f673c2b0c314bba92b7bafc6ad4.sample"
+
+[deps]
+
+source_file="res://Assets/Space Music Pack/fx/alien-talk-1.wav"
+dest_files=["res://.godot/imported/alien-talk-1.wav-cb9f1f673c2b0c314bba92b7bafc6ad4.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2
