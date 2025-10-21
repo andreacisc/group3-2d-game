@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bo0j7uihkda2e"
-path="res://.godot/imported/tiles.png-f879446657462867c08e8e70708a990f.ctex"
+uid="uid://b3ne0dalgt1ii"
+path="res://.godot/imported/drone death explosion-Sheet.png-3c7308b7882085b73d4c358aff1cf66d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assests/CraterCaverns-tiles/tiles.png"
-dest_files=["res://.godot/imported/tiles.png-f879446657462867c08e8e70708a990f.ctex"]
+source_file="res://Assests/Foozle_2DC0008_Sci_Fi_Lab_Mecha_Boss_Plus_Drone/exploding_drone/drone death explosion-Sheet.png"
+dest_files=["res://.godot/imported/drone death explosion-Sheet.png-3c7308b7882085b73d4c358aff1cf66d.ctex"]
 
 [params]
 

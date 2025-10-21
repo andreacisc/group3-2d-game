@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bo0j7uihkda2e"
-path="res://.godot/imported/tiles.png-f879446657462867c08e8e70708a990f.ctex"
+uid="uid://oy37amju8oew"
+path="res://.godot/imported/tile001.png-f63ecb2f466f2936cb3a3d844be0c35e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assests/CraterCaverns-tiles/tiles.png"
-dest_files=["res://.godot/imported/tiles.png-f879446657462867c08e8e70708a990f.ctex"]
+source_file="res://Assests/Foozle_2DT0001_Science_Fiction_Labs_Tileset/Traps/Individual_PNGs/laser_spikes_activate/tile001.png"
+dest_files=["res://.godot/imported/tile001.png-f63ecb2f466f2936cb3a3d844be0c35e.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bo0j7uihkda2e"
-path="res://.godot/imported/tiles.png-f879446657462867c08e8e70708a990f.ctex"
+uid="uid://clpetgm4hash8"
+path="res://.godot/imported/tech.png-b155e17ebcb530e0fc8272915755f089.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assests/CraterCaverns-tiles/tiles.png"
-dest_files=["res://.godot/imported/tiles.png-f879446657462867c08e8e70708a990f.ctex"]
+source_file="res://Assests/astronaut_farm_free/furniture/tech.png"
+dest_files=["res://.godot/imported/tech.png-b155e17ebcb530e0fc8272915755f089.ctex"]
 
 [params]
 

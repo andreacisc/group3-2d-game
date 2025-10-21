@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bo0j7uihkda2e"
-path="res://.godot/imported/tiles.png-f879446657462867c08e8e70708a990f.ctex"
+uid="uid://cvasohm10n1r0"
+path="res://.godot/imported/spr_meteor_small.png-c34355a8aebb168e2736d2009568ca5f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assests/CraterCaverns-tiles/tiles.png"
-dest_files=["res://.godot/imported/tiles.png-f879446657462867c08e8e70708a990f.ctex"]
+source_file="res://Assests/astronaut/spr_meteor_small.png"
+dest_files=["res://.godot/imported/spr_meteor_small.png-c34355a8aebb168e2736d2009568ca5f.ctex"]
 
 [params]
 

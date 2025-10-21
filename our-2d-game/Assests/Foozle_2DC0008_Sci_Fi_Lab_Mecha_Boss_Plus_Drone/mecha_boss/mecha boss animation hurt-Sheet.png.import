@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bo0j7uihkda2e"
-path="res://.godot/imported/tiles.png-f879446657462867c08e8e70708a990f.ctex"
+uid="uid://cdpxdlcti1yq6"
+path="res://.godot/imported/mecha boss animation hurt-Sheet.png-1978151b7211706a1ddd1cf60ba3f9ea.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assests/CraterCaverns-tiles/tiles.png"
-dest_files=["res://.godot/imported/tiles.png-f879446657462867c08e8e70708a990f.ctex"]
+source_file="res://Assests/Foozle_2DC0008_Sci_Fi_Lab_Mecha_Boss_Plus_Drone/mecha_boss/mecha boss animation hurt-Sheet.png"
+dest_files=["res://.godot/imported/mecha boss animation hurt-Sheet.png-1978151b7211706a1ddd1cf60ba3f9ea.ctex"]
 
 [params]
 

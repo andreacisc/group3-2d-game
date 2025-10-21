@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cvl4ved0ts7as"
+path="res://.godot/imported/in-the-wreckage.wav-b799fbcf51c68a72fb2c3427162f9f0c.sample"
+
+[deps]
+
+source_file="res://Assests/Space Music Pack/in-the-wreckage.wav"
+dest_files=["res://.godot/imported/in-the-wreckage.wav-b799fbcf51c68a72fb2c3427162f9f0c.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

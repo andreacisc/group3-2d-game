@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bo0j7uihkda2e"
-path="res://.godot/imported/tiles.png-f879446657462867c08e8e70708a990f.ctex"
+uid="uid://cid1ndyc4x0jb"
+path="res://.godot/imported/world barrier.png-7eeea69348a74a0c785b0e4f55ff268e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assests/CraterCaverns-tiles/tiles.png"
-dest_files=["res://.godot/imported/tiles.png-f879446657462867c08e8e70708a990f.ctex"]
+source_file="res://Assests/astronaut_farm_free/tiles/world barrier.png"
+dest_files=["res://.godot/imported/world barrier.png-7eeea69348a74a0c785b0e4f55ff268e.ctex"]
 
 [params]
 
