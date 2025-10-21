@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
-@export var move_speed: float = 100.0
-@export var jump_force: float = -150.0
+@export var move_speed: float = 200.0
+@export var jump_force: float = -250.0
 @export var gravity: float = 900.0
 
 var jump_count: int = 0
@@ -14,9 +14,9 @@ func _ready():
 
 
 func update_UI():
-	$MarginContainer/VBoxContainer/Health.text = "Health: " + str(Global.health)
-	$MarginContainer/VBoxContainer/Samples.text = "Samples: " + str(Global.samples)
-	$MarginContainer/VBoxContainer/Stims.text = "Stims: " + str(Global.stims)
+	%Health.text = "Health: " + str(Global.health)
+	%Samples.text = "Samples: " + str(Global.samples)
+	%Stims.text = "Stims: " + str(Global.stims)
 
 func _physics_process(delta: float) -> void:
 	# Apply gravity
