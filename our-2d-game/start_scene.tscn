@@ -1,5 +1,6 @@
-[gd_scene load_steps=54 format=3 uid="uid://booe42muupdbf"]
+[gd_scene load_steps=55 format=3 uid="uid://booe42muupdbf"]
 
+[ext_resource type="Texture2D" uid="uid://m3ak1y1k1mas" path="res://Assets/start_menu/Space_Stars8.png" id="1_jfucu"]
 [ext_resource type="Texture2D" uid="uid://ojtsjve0b4p8" path="res://Assets/start_menu/planet spritesheet.png" id="1_mbe3m"]
 [ext_resource type="Script" uid="uid://c8k3x6wfr4aro" path="res://animated_planet.gd" id="2_kyjdd"]
 
@@ -363,30 +364,42 @@ animations = [{
 
 [node name="Node2D" type="Node2D"]
 
+[node name="Parallax2D" type="Parallax2D" parent="."]
+repeat_size = Vector2(1250, 0)
+autoscroll = Vector2(20, 0)
+repeat_times = 3
+
+[node name="SpaceStars8" type="Sprite2D" parent="Parallax2D"]
+texture_filter = 1
+position = Vector2(563.00006, 327)
+scale = Vector2(21.48387, 21.48387)
+texture = ExtResource("1_jfucu")
+
 [node name="animated_planet" type="AnimatedSprite2D" parent="."]
-position = Vector2(190, 219)
-scale = Vector2(3, 3)
+position = Vector2(210.25002, 266.25)
+scale = Vector2(5.865, 5.865)
 sprite_frames = SubResource("SpriteFrames_5xo8t")
-frame_progress = 0.72967404
+frame_progress = 0.24433279
 script = ExtResource("2_kyjdd")
 
 [node name="start_button" type="Button" parent="."]
-offset_left = 579.0
-offset_top = 222.0
-offset_right = 635.0
-offset_bottom = 253.0
+offset_left = 508.0
+offset_top = 135.0
+offset_right = 564.0
+offset_bottom = 166.0
+theme_override_colors/icon_hover_color = Color(0.64509666, 0.9964588, 0.5306382, 1)
 text = "START"
 
 [node name="game_rules_button" type="Button" parent="."]
-offset_left = 554.0
-offset_top = 277.0
-offset_right = 661.0
-offset_bottom = 308.0
+offset_left = 536.0
+offset_top = 288.0
+offset_right = 643.0
+offset_bottom = 319.0
 text = "GAME RULES"
 
 [node name="Button" type="Button" parent="."]
-offset_left = 590.0
-offset_top = 327.0
-offset_right = 631.0
-offset_bottom = 358.0
+offset_left = 510.0
+offset_top = 405.0
+offset_right = 551.0
+offset_bottom = 436.0
 text = "EXIT"
