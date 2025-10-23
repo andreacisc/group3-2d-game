@@ -18,12 +18,11 @@ func update_UI():
 	%Samples.text = "Samples: " + str(Global.samples)
 	%Stims.text = "Stims: " + str(Global.stims)
 
+
 func _physics_process(delta: float) -> void:
 	# Apply gravity
 	if not is_on_floor():
 		velocity.y += gravity * delta
-
-
 
 	# Horizontal movement (A/D or Arrow Keys)
 	var input_dir := 0.0
@@ -33,7 +32,6 @@ func _physics_process(delta: float) -> void:
 		input_dir += 1.0
 	velocity.x = input_dir * move_speed
 
-	# Jump (W, Space, or Enter)
 	# Jump (W, Space, or Enter)
 	if (Input.is_action_just_pressed("jump") or Input.is_action_just_pressed("ui_accept")) and jump_count < MAX_JUMPS:
 		if jump_count == 0:
@@ -54,8 +52,24 @@ func _physics_process(delta: float) -> void:
 	else:
 		$Player_Sprite.play("Idle")
 
-
 	# Move the character
 	move_and_slide()
 	if is_on_floor():
 		jump_count = 0
+
+
+#Handle collisions with pickups
+func _on_body_entered(body: Node) -> void:
+	if body.is_in_group("stim"):
+		Global.stims += 1
+		update_UI()
+		body.queue_free()
+	elif body.is_in_group("sample"):
+		if body.has_meta("rarity"):
+			var rarity = body.get_meta("rarity")
+			if Global.SAMPLE_VALUES.has(rarity):
+				Global.sample_score += Global.SAMPLE_VALUES[rarity]
+				Global.sample_count += 1
+				Global.sample_rarity_count[rarity] += 1
+		update_UI()
+		body.queue_free()
