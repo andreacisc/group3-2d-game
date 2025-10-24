@@ -159,6 +159,7 @@ scale = Vector2(3, 3)
 texture = ExtResource("2_714xq")
 
 [node name="intructions_to_go_back" type="Label" parent="."]
+texture_filter = 1
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
@@ -176,11 +177,12 @@ theme_override_styles/normal = SubResource("StyleBoxTexture_714xq")
 text = "PRESS SPACE BAR TO RETURN TO START MENU"
 
 [node name="Label2" type="Label" parent="."]
+texture_filter = 1
 offset_left = 16.0
 offset_top = 17.0
 offset_right = 1185.0
 offset_bottom = 293.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("2_pf1sy")
 theme_override_font_sizes/font_size = 40
 text = "YOU ARE AN ASTRONAUT FROM PLANET EARTH WHO HAS
