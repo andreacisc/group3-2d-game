@@ -14,9 +14,9 @@ func _ready():
 
 
 func update_UI():
-	%Health.text = "Health: " + str(Global.health)
-	%Samples.text = "Samples: " + str(Global.samples)
-	%Stims.text = "Stims: " + str(Global.stims)
+	%Health.text = "HEALTH: " + str(Global.health) 
+	%Samples.text = "SAMPLES: " + str(Global.samples)
+	%Stims.text = "STIMS: " + str(Global.stims)
 
 
 func _physics_process(delta: float) -> void:

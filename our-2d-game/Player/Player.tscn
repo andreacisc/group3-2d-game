@@ -137,18 +137,18 @@ animations = [{
 script = ExtResource("2_ddoul")
 
 [node name="Player_body" type="CollisionShape2D" parent="Player_Physics"]
-position = Vector2(508, 305)
+position = Vector2(-0.37501144, -0.5000763)
 shape = SubResource("CapsuleShape2D_kpjcp")
 
 [node name="Player_Sprite" type="AnimatedSprite2D" parent="Player_Physics"]
-position = Vector2(508, 305)
+position = Vector2(-0.37501144, -0.500046)
 scale = Vector2(0.26838222, 0.23400004)
 sprite_frames = SubResource("SpriteFrames_rjqkl")
 animation = &"Idle"
 offset = Vector2(-3.7260742, 0.00024414063)
 
 [node name="Camera2D" type="Camera2D" parent="Player_Physics"]
-position = Vector2(508, 305)
+position = Vector2(-0.37501144, -0.5000763)
 zoom = Vector2(4, 4)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="Player_Physics"]
