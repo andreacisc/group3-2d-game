@@ -1,7 +1,17 @@
-[gd_scene format=3 uid="uid://mcajsd4rgvrq"]
+[gd_scene load_steps=3 format=3 uid="uid://mcajsd4rgvrq"]
+
+[ext_resource type="Texture2D" uid="uid://cvasohm10n1r0" path="res://Assets/astronaut/spr_meteor_small.png" id="1_54ynd"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vo6io"]
 
 [node name="Sample" type="Node2D"]
+position = Vector2(1, 3)
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Area2D" type="Area2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="Area2D"]
+scale = Vector2(0.0925926, 0.08695652)
+texture = ExtResource("1_54ynd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_vo6io")

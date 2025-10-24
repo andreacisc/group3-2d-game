@@ -1,14 +1,8 @@
-[gd_scene load_steps=24 format=3 uid="uid://bcas706dngqvo"]
+[gd_scene load_steps=21 format=3 uid="uid://bcas706dngqvo"]
 
-[ext_resource type="Texture2D" uid="uid://654h0tf83i30" path="res://icon.svg" id="1_tok1r"]
 [ext_resource type="Script" uid="uid://betnsxa74vvh8" path="res://Player/player_physics.gd" id="2_ddoul"]
 [ext_resource type="Texture2D" uid="uid://bapsw8m8wxqed" path="res://Assets/astronaut/space man.png" id="3_8g4oa"]
 [ext_resource type="FontFile" uid="uid://dp08aqtppd8ga" path="res://Assets/Fonts/Many Years Higher.ttf" id="4_ddoul"]
-
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_kpjcp"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_kpjcp"]
-size = Vector2(995, 25.625)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kpjcp"]
 radius = 13.0
@@ -139,35 +133,22 @@ animations = [{
 
 [node name="Node2D" type="Node2D"]
 
-[node name="RigidBody2D" type="RigidBody2D" parent="."]
-physics_material_override = SubResource("PhysicsMaterial_kpjcp")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
-position = Vector2(499.5, 353.8125)
-shape = SubResource("RectangleShape2D_kpjcp")
-
-[node name="Sprite2D" type="Sprite2D" parent="RigidBody2D"]
-position = Vector2(620.665, 350)
-scale = Vector2(3.0234373, 0.1328125)
-texture = ExtResource("1_tok1r")
-offset = Vector2(-37.759995, 0)
-
 [node name="Player_Physics" type="CharacterBody2D" parent="."]
 script = ExtResource("2_ddoul")
 
 [node name="Player_body" type="CollisionShape2D" parent="Player_Physics"]
-position = Vector2(508, 305)
+position = Vector2(-0.37501144, -0.5000763)
 shape = SubResource("CapsuleShape2D_kpjcp")
 
 [node name="Player_Sprite" type="AnimatedSprite2D" parent="Player_Physics"]
-position = Vector2(508, 305)
+position = Vector2(-0.37501144, -0.500046)
 scale = Vector2(0.26838222, 0.23400004)
 sprite_frames = SubResource("SpriteFrames_rjqkl")
 animation = &"Idle"
 offset = Vector2(-3.7260742, 0.00024414063)
 
 [node name="Camera2D" type="Camera2D" parent="Player_Physics"]
-position = Vector2(508, 305)
+position = Vector2(-0.37501144, -0.5000763)
 zoom = Vector2(4, 4)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="Player_Physics"]
