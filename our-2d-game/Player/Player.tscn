@@ -1,7 +1,9 @@
-[gd_scene load_steps=21 format=3 uid="uid://bcas706dngqvo"]
+[gd_scene load_steps=23 format=3 uid="uid://bcas706dngqvo"]
 
+[ext_resource type="PackedScene" uid="uid://bs6vv1hq4jwch" path="res://Player/Bullet.tscn" id="2_8g4oa"]
 [ext_resource type="Script" uid="uid://betnsxa74vvh8" path="res://Player/player_physics.gd" id="2_ddoul"]
 [ext_resource type="Texture2D" uid="uid://bapsw8m8wxqed" path="res://Assets/astronaut/space man.png" id="3_8g4oa"]
+[ext_resource type="Texture2D" uid="uid://ceow3smnnfh67" path="res://Assets/Guns Update - V1.01/Guns/01 - Individual sprites/Guns/AK 47 [96x48].png" id="4_8g4oa"]
 [ext_resource type="FontFile" uid="uid://dp08aqtppd8ga" path="res://Assets/Fonts/Many Years Higher.ttf" id="4_ddoul"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kpjcp"]
@@ -133,8 +135,9 @@ animations = [{
 
 [node name="Node2D" type="Node2D"]
 
-[node name="Player_Physics" type="CharacterBody2D" parent="."]
+[node name="Player_Physics" type="CharacterBody2D" parent="." groups=["player"]]
 script = ExtResource("2_ddoul")
+BulletScene = ExtResource("2_8g4oa")
 
 [node name="Player_body" type="CollisionShape2D" parent="Player_Physics"]
 position = Vector2(-0.37501144, -0.5000763)
@@ -182,3 +185,11 @@ layout_mode = 2
 theme_override_colors/font_color = Color(0.13725491, 0.45490196, 1, 1)
 theme_override_fonts/font = ExtResource("4_ddoul")
 theme_override_font_sizes/font_size = 25
+
+[node name="Gun" type="Sprite2D" parent="Player_Physics"]
+position = Vector2(13.125, 5.875001)
+scale = Vector2(0.47656247, 0.4947917)
+texture = ExtResource("4_8g4oa")
+
+[node name="Marker2D" type="Marker2D" parent="Player_Physics/Gun"]
+position = Vector2(31.213116, -13.894737)

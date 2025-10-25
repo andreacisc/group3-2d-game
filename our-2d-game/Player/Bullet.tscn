@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://bs6vv1hq4jwch"]
+
+[ext_resource type="Script" uid="uid://cole2r0mn51bg" path="res://Player/bullet.gd" id="1_js047"]
+[ext_resource type="Texture2D" uid="uid://bhvg5ivrqcnup" path="res://Assets/Guns Update - V1.01/Guns/01 - Individual sprites/Bullets & Ammo/AK 47/Bullet.png" id="2_ft26q"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nllvn"]
+size = Vector2(3, 2)
+
+[node name="Bullet" type="Area2D"]
+script = ExtResource("1_js047")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(1.5, 0)
+shape = SubResource("RectangleShape2D_nllvn")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_ft26q")
