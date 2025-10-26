@@ -29,12 +29,18 @@ var reloading: bool = false
 var can_use_stim: bool = true
 
 # -------------------------
+# Internal offsets
+# -------------------------
+var muzzle_base_pos: Vector2
+
+# -------------------------
 # Ready
 # -------------------------
 func _ready():
 	update_UI()
 	jump_count = 0
 	current_ammo = mag_size
+	muzzle_base_pos = $Gun/Marker2D.position
 
 # -------------------------
 # UI Updates
@@ -103,6 +109,23 @@ func _physics_process(delta: float) -> void:
 		use_stim()
 
 # -------------------------
+# Gun Aiming (Cursor Follow)
+# -------------------------
+func _process(_delta: float) -> void:
+	var mouse_pos = get_global_mouse_position()
+	var dir = (mouse_pos - $Gun.global_position).normalized()
+	$Gun.rotation = dir.angle()
+
+	# Flip the gun sprite vertically when aiming left
+	$Gun/Gun_image.flip_v = dir.x < 0
+
+	# Mirror the muzzle marker vertically when the sprite is flipped
+	if $Gun/Gun_image.flip_v:
+		$Gun/Marker2D.position = Vector2(muzzle_base_pos.x, -muzzle_base_pos.y)
+	else:
+		$Gun/Marker2D.position = muzzle_base_pos
+
+# -------------------------
 # Shooting Functions
 # -------------------------
 func shoot():
@@ -111,9 +134,9 @@ func shoot():
 		return
 
 	var bullet = BulletScene.instantiate()
-	bullet.global_position = global_position
-	# Fire in facing direction (flip_h controls facing)
-	bullet.direction = Vector2.RIGHT if $Player_Sprite.flip_h == false else Vector2.LEFT
+	bullet.global_position = $Gun/Marker2D.global_position  # Marker2D at gun muzzle
+	var dir = (get_global_mouse_position() - bullet.global_position).normalized()
+	bullet.direction = dir
 	bullet.shooter = self   # set shooter reference
 	get_parent().add_child(bullet)
 
