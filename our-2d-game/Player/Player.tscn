@@ -1,11 +1,10 @@
-[gd_scene load_steps=26 format=3 uid="uid://bcas706dngqvo"]
+[gd_scene load_steps=24 format=3 uid="uid://bcas706dngqvo"]
 
 [ext_resource type="PackedScene" uid="uid://bs6vv1hq4jwch" path="res://Player/Bullet.tscn" id="2_8g4oa"]
 [ext_resource type="Script" uid="uid://betnsxa74vvh8" path="res://Player/player_physics.gd" id="2_ddoul"]
 [ext_resource type="Texture2D" uid="uid://bapsw8m8wxqed" path="res://Assets/astronaut/space man.png" id="3_8g4oa"]
 [ext_resource type="Texture2D" uid="uid://ceow3smnnfh67" path="res://Assets/Guns Update - V1.01/Guns/01 - Individual sprites/Guns/AK 47 [96x48].png" id="4_8g4oa"]
 [ext_resource type="FontFile" uid="uid://dp08aqtppd8ga" path="res://Assets/Fonts/Many Years Higher.ttf" id="4_ddoul"]
-[ext_resource type="Texture2D" uid="uid://654h0tf83i30" path="res://icon.svg" id="6_6ysni"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kpjcp"]
 radius = 13.0
@@ -136,9 +135,6 @@ animations = [{
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_6ysni"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_vlldt"]
-size = Vector2(337, 20)
-
 [node name="Node2D" type="Node2D"]
 
 [node name="Player_Physics" type="CharacterBody2D" parent="." groups=["player"]]
@@ -205,12 +201,3 @@ scale = Vector2(0.47656247, 0.4947917)
 
 [node name="Floor" type="StaticBody2D" parent="."]
 physics_material_override = SubResource("PhysicsMaterial_6ysni")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
-position = Vector2(11.5, 45)
-shape = SubResource("RectangleShape2D_vlldt")
-
-[node name="Sprite2D" type="Sprite2D" parent="Floor"]
-position = Vector2(11.500011, 45.5)
-scale = Vector2(2.6171875, 0.1640625)
-texture = ExtResource("6_6ysni")
