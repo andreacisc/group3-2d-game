@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://byj6ap7s03b0p"
-path="res://.godot/imported/Outdoor Decoration_free.png-7d4b48952465ee3725d4bb8628132b2b.ctex"
+uid="uid://dykhbxxxkunkd"
+path="res://.godot/imported/item 16 x16.png-6bf91ac7d44482ed41fc5447b979164e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/astronaut_farm_free/decoration/Outdoor Decoration_free.png"
-dest_files=["res://.godot/imported/Outdoor Decoration_free.png-7d4b48952465ee3725d4bb8628132b2b.ctex"]
+source_file="res://Level 1/item 16 x16.png"
+dest_files=["res://.godot/imported/item 16 x16.png-6bf91ac7d44482ed41fc5447b979164e.ctex"]
 
 [params]
 

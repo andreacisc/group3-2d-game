@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bmqkleuqwhae7"
-path="res://.godot/imported/land.png-bc538092ee60f491f2e38485d97ea82e.ctex"
+uid="uid://ckur083x4ynyn"
+path="res://.godot/imported/Space_Stars7.png-0cbeeb50fa7a1b1d2c1d7e08102896e4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/astronaut_farm_free/tiles/land.png"
-dest_files=["res://.godot/imported/land.png-bc538092ee60f491f2e38485d97ea82e.ctex"]
+source_file="res://start_menu/Space_Stars7.png"
+dest_files=["res://.godot/imported/Space_Stars7.png-0cbeeb50fa7a1b1d2c1d7e08102896e4.ctex"]
 
 [params]
 

@@ -1,8 +1,8 @@
 [gd_scene load_steps=68 format=3 uid="uid://booe42muupdbf"]
 
-[ext_resource type="Script" uid="uid://b2wbolv80gju" path="res://start_scene.gd" id="1_r12o7"]
-[ext_resource type="Texture2D" uid="uid://m3ak1y1k1mas" path="res://Assets/start_menu/Space_Stars8.png" id="2_pwuys"]
-[ext_resource type="Texture2D" uid="uid://ojtsjve0b4p8" path="res://Assets/start_menu/planet spritesheet.png" id="3_uceqf"]
+[ext_resource type="Script" uid="uid://b2wbolv80gju" path="res://start_menu/start_scene.gd" id="1_r12o7"]
+[ext_resource type="Texture2D" uid="uid://m3ak1y1k1mas" path="res://start_menu/Space_Stars8.png" id="2_pwuys"]
+[ext_resource type="Texture2D" uid="uid://ojtsjve0b4p8" path="res://start_menu/planet spritesheet.png" id="3_uceqf"]
 [ext_resource type="FontFile" uid="uid://dp08aqtppd8ga" path="res://Assets/Fonts/Many Years Higher.ttf" id="4_nkjsa"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kyjdd"]

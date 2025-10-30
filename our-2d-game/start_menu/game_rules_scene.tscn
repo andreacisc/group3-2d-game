@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://c5mav3rtor7dw"]
 
-[ext_resource type="Script" uid="uid://b1alnq818faah" path="res://Assets/start_menu/game_rules_scene.gd" id="1_xg11i"]
-[ext_resource type="Texture2D" uid="uid://ckur083x4ynyn" path="res://Assets/start_menu/Space_Stars7.png" id="2_714xq"]
+[ext_resource type="Script" uid="uid://b1alnq818faah" path="res://start_menu/game_rules_scene.gd" id="1_xg11i"]
+[ext_resource type="Texture2D" uid="uid://ckur083x4ynyn" path="res://start_menu/Space_Stars7.png" id="2_714xq"]
 [ext_resource type="FontFile" uid="uid://dp08aqtppd8ga" path="res://Assets/Fonts/Many Years Higher.ttf" id="2_pf1sy"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_714xq"]
@@ -188,9 +188,15 @@ theme_override_font_sizes/font_size = 40
 text = "YOU ARE AN ASTRONAUT FROM PLANET EARTH WHO HAS
 BEEN SENT TO OUTER SPACE ON A MISSION.
 
-DURING THAT MISSION, YOU END UP STRANDED IN SPACE. 
+DURING THE MISSION, YOUR ROCKET SHIP ENDS UP
+CRASHING AND LANDS ON A STRANGE PLANET. 
 
-YOUR JOB IS TO COMPLETE THE TASKS YOU WERE SENT
-UP FOR AND RETURN BACK TO PLANET EARTH.
+YOUR JOB IS TO:
+1. COLLECT SAMPLES FROM THE STRANGE PLANET
+2. EXPLORE THE UNDERGROUNDS OF THE PLANET
+3. AND ...
+
+COMPLETE ALL OF THESE THINGS AND YOU WILL BE ABLE
+TO RETURN TO EARTH.
 
 GOOD LUCK."

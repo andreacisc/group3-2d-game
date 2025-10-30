@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://m3ak1y1k1mas"
-path="res://.godot/imported/Space_Stars8.png-9b10c49caab4ededc03dea2e4aa3a248.ctex"
+uid="uid://buhaan23tcl5b"
+path="res://.godot/imported/alienguycute-Sheet.png-8c80702fd7257697cd50c59c40aa6e2f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/start_menu/Space_Stars8.png"
-dest_files=["res://.godot/imported/Space_Stars8.png-9b10c49caab4ededc03dea2e4aa3a248.ctex"]
+source_file="res://Level 1/alienguycute-Sheet.png"
+dest_files=["res://.godot/imported/alienguycute-Sheet.png-8c80702fd7257697cd50c59c40aa6e2f.ctex"]
 
 [params]
 

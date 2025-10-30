@@ -5,6 +5,7 @@ extends CharacterBody2D
 
 
 
+
 func _process(delta: float) -> void:
 	
 	var direction : Vector2 = Vector2.ZERO
@@ -28,6 +29,12 @@ func _process(delta: float) -> void:
 	velocity = direction * move_speed
 
 
+
 func _physics_process(delta: float) -> void:
 	
 	move_and_slide()
+
+
+
+func _on_area_2d_body_entered(body) -> void:
+	$"../type1_sample".queue_free()

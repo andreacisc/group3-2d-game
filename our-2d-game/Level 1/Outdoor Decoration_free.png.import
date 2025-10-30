@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d2t6neh7sr8n7"
-path="res://.godot/imported/Space_Stars6.png-4e3513e4733788071dabf2e360710e4f.ctex"
+uid="uid://byj6ap7s03b0p"
+path="res://.godot/imported/Outdoor Decoration_free.png-cbdebedbd755053c1898d3c4351d28dd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/start_menu/Space_Stars6.png"
-dest_files=["res://.godot/imported/Space_Stars6.png-4e3513e4733788071dabf2e360710e4f.ctex"]
+source_file="res://Level 1/Outdoor Decoration_free.png"
+dest_files=["res://.godot/imported/Outdoor Decoration_free.png-cbdebedbd755053c1898d3c4351d28dd.ctex"]
 
 [params]
 
