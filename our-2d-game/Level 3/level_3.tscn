@@ -393,10 +393,10 @@ position = Vector2(238, 511)
 position = Vector2(861, 134)
 
 [node name="Alien Spawner2" parent="." instance=ExtResource("4_m5ttm")]
-position = Vector2(324, 145)
+position = Vector2(677, 125)
 
 [node name="Alien Spawner8" parent="." instance=ExtResource("4_m5ttm")]
-position = Vector2(579, 65)
+position = Vector2(535, 79)
 
 [node name="enemy" parent="." instance=ExtResource("5_ahcmy")]
 position = Vector2(727, 557)
