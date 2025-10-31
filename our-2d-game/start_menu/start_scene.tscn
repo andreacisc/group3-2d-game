@@ -615,15 +615,16 @@ scale = Vector2(6.5199995, 6.5199995)
 sprite_frames = SubResource("SpriteFrames_5xo8t")
 frame_progress = 0.57736576
 
-[node name="Label" type="Label" parent="."]
+[node name="game_title" type="Label" parent="."]
 texture_filter = 1
 offset_left = 518.0
 offset_top = 29.0
 offset_right = 821.0
 offset_bottom = 98.0
+theme_override_colors/font_color = Color(0.6177731, 0, 0.07187731, 1)
 theme_override_fonts/font = ExtResource("4_nkjsa")
 theme_override_font_sizes/font_size = 55
-text = "GAME NAME"
+text = "WASP - 399K"
 
 [node name="start_button" type="Button" parent="."]
 texture_filter = 1
