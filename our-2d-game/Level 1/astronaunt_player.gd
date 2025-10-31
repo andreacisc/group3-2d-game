@@ -37,4 +37,5 @@ func _physics_process(delta: float) -> void:
 
 
 func _on_area_2d_body_entered(body) -> void:
-	$"../type1_sample".queue_free()
+	if GameController.total_brown_rocks == 2 and GameController.total_purple_minerals == 2 and GameController.total_plants == 1:
+		get_tree().change_scene_to_file("res://Level 2/level 2.tscn")

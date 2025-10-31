@@ -1,8 +1,10 @@
 extends Node2D
 
-@onready var sfx_mineral_pickup: AudioStreamPlayer = $"../astronaunt_player/sfx_mineral_pickup"
+@onready var sfx_plant_pickup: AudioStreamPlayer = $"../astronaunt_player/sfx_plant_pickup"
 
 @export var value: int = 1
+
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -11,12 +13,11 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	$AnimatedSprite2D.play()
 
 
 func _on_area_2d_body_entered(body):
 	if body is Astronaunt:
-		GameController.brown_rock_collected(value)
+		GameController.plant_collected(value)
 		self.queue_free()
-		sfx_mineral_pickup.play()
-		
+		sfx_plant_pickup.play()

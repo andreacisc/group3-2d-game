@@ -2,7 +2,7 @@ extends Node2D
 
 @onready var sfx_mineral_pickup: AudioStreamPlayer = $"../astronaunt_player/sfx_mineral_pickup"
 
-
+@export var value: int = 1
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -16,5 +16,6 @@ func _process(delta: float) -> void:
 
 func _on_area_2d_body_entered(body):
 	if body is Astronaunt:
+		GameController.purple_mineral_collected(value)
 		self.queue_free()
 		sfx_mineral_pickup.play()
