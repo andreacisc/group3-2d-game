@@ -13,9 +13,9 @@
 [ext_resource type="PackedScene" uid="uid://bxlslsmo12sll" path="res://Level 1/purple_mineral_sample.tscn" id="9_oemq7"]
 [ext_resource type="AudioStream" uid="uid://d2yqtp3ybymh1" path="res://Level 1/sfx_plant_pickup.wav" id="9_qo0pu"]
 [ext_resource type="PackedScene" uid="uid://d31w8w6emixww" path="res://Level 1/plant.tscn" id="11_srghp"]
-[ext_resource type="PackedScene" uid="uid://42cdboo54rkv" path="res://Level 1/purple_mineral_ui.tscn" id="14_rsvaq"]
-[ext_resource type="PackedScene" uid="uid://176awdlwlpmv" path="res://Level 1/brown_rock_ui.tscn" id="15_twomw"]
-[ext_resource type="PackedScene" uid="uid://chvnfqtpn1adi" path="res://Level 1/plant_ui.tscn" id="16_wf6lb"]
+[ext_resource type="PackedScene" path="res://Level 1/purple_mineral_ui.tscn" id="14_rsvaq"]
+[ext_resource type="PackedScene" path="res://Level 1/brown_rock_ui.tscn" id="15_twomw"]
+[ext_resource type="PackedScene" path="res://Level 1/plant_ui.tscn" id="16_wf6lb"]
 [ext_resource type="FontFile" uid="uid://dp08aqtppd8ga" path="res://Assets/Fonts/Many Years Higher.ttf" id="17_2oos5"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ws576"]

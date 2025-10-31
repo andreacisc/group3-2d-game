@@ -1,7 +1,9 @@
-[gd_scene load_steps=5 format=4 uid="uid://bfm414f4ojtx5"]
+[gd_scene load_steps=7 format=4 uid="uid://bfm414f4ojtx5"]
 
 [ext_resource type="Texture2D" uid="uid://bn2ury5kl3i8y" path="res://Assets/Tileset/level_tileset.png" id="1_lbnng"]
 [ext_resource type="PackedScene" uid="uid://bcas706dngqvo" path="res://Player/Player.tscn" id="2_j3dad"]
+[ext_resource type="PackedScene" uid="uid://qxx67kddndex" path="res://Interactables/Stim.tscn" id="3_1ig6v"]
+[ext_resource type="PackedScene" uid="uid://bm2wwthyvmgah" path="res://Interactables/AlienSpawner.tscn" id="4_m5ttm"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1fhj5"]
 texture = ExtResource("1_lbnng")
@@ -367,10 +369,45 @@ tile_set = SubResource("TileSet_16pka")
 
 [node name="Node2D" parent="Background" instance=ExtResource("2_j3dad")]
 position = Vector2(162, -23)
-move_speed = null
-jump_force = null
-gravity = null
-fire_rate = null
-mag_size = null
-reload_time = null
-stim_cooldown = null
+
+[node name="Stims" parent="." instance=ExtResource("3_1ig6v")]
+position = Vector2(241.99998, 173.99998)
+
+[node name="Stims2" parent="." instance=ExtResource("3_1ig6v")]
+position = Vector2(496, 99.00001)
+
+[node name="Stims3" parent="." instance=ExtResource("3_1ig6v")]
+position = Vector2(547, 83)
+
+[node name="Stims4" parent="." instance=ExtResource("3_1ig6v")]
+position = Vector2(699, 392.99997)
+
+[node name="Stims5" parent="." instance=ExtResource("3_1ig6v")]
+position = Vector2(889, 395)
+
+[node name="Stims6" parent="." instance=ExtResource("3_1ig6v")]
+position = Vector2(238, 511)
+
+[node name="Alien Spawner" parent="." instance=ExtResource("4_m5ttm")]
+position = Vector2(861, 134)
+
+[node name="Alien Spawner2" parent="." instance=ExtResource("4_m5ttm")]
+position = Vector2(324, 145)
+
+[node name="Alien Spawner3" parent="." instance=ExtResource("4_m5ttm")]
+position = Vector2(536, 80)
+
+[node name="Alien Spawner4" parent="." instance=ExtResource("4_m5ttm")]
+position = Vector2(245, 384)
+
+[node name="Alien Spawner6" parent="." instance=ExtResource("4_m5ttm")]
+position = Vector2(862, 383)
+
+[node name="Alien Spawner7" parent="." instance=ExtResource("4_m5ttm")]
+position = Vector2(622, 635)
+
+[node name="Alien Spawner8" parent="." instance=ExtResource("4_m5ttm")]
+position = Vector2(730, 564)
+
+[node name="Alien Spawner11" parent="." instance=ExtResource("4_m5ttm")]
+position = Vector2(930, 563)

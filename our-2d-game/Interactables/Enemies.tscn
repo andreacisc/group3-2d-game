@@ -356,7 +356,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_kyge3")
 }],
-"loop": true,
+"loop": false,
 "name": &"defeated",
 "speed": 10.0
 }, {
@@ -417,34 +417,34 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_pf08x"]
-radius = 7.0
+radius = 8.0
 height = 20.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_wjyur"]
-radius = 11.0
+radius = 16.03122
 
-[node name="Enemies" type="Node2D"]
-
-[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+[node name="enemy" type="CharacterBody2D" groups=["enemy"]]
+collision_layer = 4
 script = ExtResource("1_wjyur")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(1.0000001, -8)
 scale = Vector2(0.675, 0.725)
 sprite_frames = SubResource("SpriteFrames_doaq0")
-animation = &"idle"
-frame_progress = 0.7653162
+animation = &"defeated"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
+light_mask = 5
 position = Vector2(3, -1)
 shape = SubResource("CapsuleShape2D_pf08x")
 
-[node name="Area2D - Hitbox" type="Area2D" parent="CharacterBody2D"]
+[node name="Area2D - Hitbox" type="Area2D" parent="."]
+collision_layer = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/Area2D - Hitbox"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D - Hitbox"]
 visible = false
 position = Vector2(3, -1)
 shape = SubResource("CircleShape2D_wjyur")
 
-[connection signal="body_entered" from="CharacterBody2D/Area2D - Hitbox" to="CharacterBody2D" method="_on_area_2d__hitbox_body_entered"]
+[connection signal="body_entered" from="Area2D - Hitbox" to="." method="_on_area_2d__hitbox_body_entered"]

@@ -1,5 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://qxx67kddndex"]
+[gd_scene load_steps=4 format=3 uid="uid://qxx67kddndex"]
 
+[ext_resource type="Script" uid="uid://b18h3w4ynnjaj" path="res://Interactables/stim.gd" id="1_rdqyi"]
 [ext_resource type="Texture2D" uid="uid://cwh5mntqhcw1m" path="res://Assets/Space Themed Items/stim.png" id="1_tdqmc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tdqmc"]
@@ -8,6 +9,7 @@ size = Vector2(12, 20)
 [node name="Stims" type="Area2D" groups=["stim"]]
 position = Vector2(1.3552527e-20, 2.7105054e-20)
 scale = Vector2(0.99999994, 0.99999994)
+script = ExtResource("1_rdqyi")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(2.2737366e-13, 4.5474732e-13)
@@ -19,3 +21,5 @@ visible = false
 position = Vector2(2.7105054e-20, 5.421011e-20)
 scale = Vector2(0.99999976, 0.99999976)
 shape = SubResource("RectangleShape2D_tdqmc")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

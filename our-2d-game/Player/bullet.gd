@@ -8,9 +8,11 @@ var shooter: Node = null
 func _physics_process(delta: float) -> void:
 	position += direction * speed * delta
 
-func _on_Bullet_body_entered(body: Node) -> void:
-	if body.is_in_group("enemy"):   # make sure your alien is in "enemy" group
-		body.take_damage(damage)    # call the enemy’s damage function
+func _on_body_entered(body: Node2D) -> void:
+	print("Bullet hit:", body.name, " Groups:", body.get_groups())
+	if body.is_in_group("enemy"):
+		if body.has_method("take_damage"):
+			body.take_damage(damage, shooter)
 		queue_free()
 	elif not body.is_in_group("player"):
-		queue_free()  # bullet disappears on hitting walls/other things
+		queue_free()

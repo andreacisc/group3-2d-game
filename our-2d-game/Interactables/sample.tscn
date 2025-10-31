@@ -1,11 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://mcajsd4rgvrq"]
+[gd_scene load_steps=4 format=3 uid="uid://mcajsd4rgvrq"]
 
 [ext_resource type="Texture2D" uid="uid://cvasohm10n1r0" path="res://Assets/astronaut/spr_meteor_small.png" id="1_w231v"]
+[ext_resource type="Script" uid="uid://dr7j8kbbmyw5a" path="res://Interactables/sample.gd" id="1_xh2ra"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vo6io"]
 radius = 5.0
 
 [node name="Sample" type="Area2D" groups=["sample"]]
+script = ExtResource("1_xh2ra")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
@@ -14,3 +16,5 @@ shape = SubResource("CircleShape2D_vo6io")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.0925926, 0.08695652)
 texture = ExtResource("1_w231v")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -32,11 +32,13 @@ var can_use_stim: bool = true
 # Internal offsets
 # -------------------------
 var muzzle_base_pos: Vector2
+var spawn_point: Vector2   # NEW: store initial spawn position
 
 # -------------------------
 # Ready
 # -------------------------
 func _ready():
+	spawn_point = global_position   # remember starting position
 	update_UI()
 	jump_count = 0
 	current_ammo = mag_size
@@ -94,6 +96,8 @@ func _physics_process(delta: float) -> void:
 
 	if Input.is_action_just_pressed("use_stim") and can_use_stim:
 		use_stim()
+
+	check_health()  
 
 # -------------------------
 # Gun Aiming (Cursor Follow)
@@ -160,30 +164,18 @@ func use_stim():
 		can_use_stim = true
 
 # -------------------------
-# Handle stim pickups
+# Health / Respawn
 # -------------------------
-func _on_stim_body_entered(body: Node2D) -> void:
-	if body.is_in_group("player"):
-		Global.stims += 1
-		print("Picked up stim. Total stims:", Global.stims)
+func check_health():
+	if Global.health <= 0:
+		Global.health = 0
 		update_UI()
-		body.queue_free()  # free the stim node, not the player
+		respawn()
 
-# -------------------------
-# Handle sample pickups
-# -------------------------
-func _on_sample_body_entered(body: Node2D) -> void:
-	if body.is_in_group("player"):
-		if has_meta("rarity"):
-			var rarity = get_meta("rarity")
-			if Global.SAMPLE_VALUES.has(rarity):
-				Global.sample_score += Global.SAMPLE_VALUES[rarity]
-				Global.sample_count += 1
-				Global.sample_rarity_count[rarity] += 1
-				print("Picked up sample of rarity:", rarity)
-		else:
-			Global.samples += 1
-			print("Picked up generic sample. Total samples:", Global.samples)
+func respawn():
+	global_position = spawn_point
+	Global.health = 100
+	update_UI()
 
-		update_UI()
-		sample.queue_free()  # free the sample node, not the player
+	for enemy in get_tree().get_nodes_in_group("enemy"):
+		enemy.player_in_range = null

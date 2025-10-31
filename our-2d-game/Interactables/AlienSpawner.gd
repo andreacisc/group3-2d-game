@@ -1,7 +1,7 @@
 extends Node2D
 
 @export var AlienScene: PackedScene
-@export var spawn_interval: float = 2.0
+@export var spawn_interval: float = 5.0
 
 var can_spawn := true
 var spawn_points := []
@@ -18,13 +18,16 @@ func _ready():
 	$StopZone.body_entered.connect(_on_StopZone_body_entered)
 
 func _on_SpawnTimer_timeout():
-	if can_spawn and AlienScene and spawn_points.size() > 0:
+	if not can_spawn:
+		return
+	if AlienScene and spawn_points.size() > 0:
 		var spawn_point = spawn_points.pick_random()
 		var alien = AlienScene.instantiate()
 		alien.global_position = spawn_point.global_position
 		get_parent().add_child(alien)
 
 func _on_StopZone_body_entered(body: Node) -> void:
-	if body.name == "Player":
+	if body.is_in_group("player"):
 		can_spawn = false
 		$SpawnTimer.stop()
+		queue_free()  

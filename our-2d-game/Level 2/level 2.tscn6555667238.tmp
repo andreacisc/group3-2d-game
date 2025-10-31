@@ -1,10 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://mpnqc2s6blh6"]
+[gd_scene load_steps=7 format=3 uid="uid://mpnqc2s6blh6"]
 
 [ext_resource type="Texture2D" uid="uid://bo0j7uihkda2e" path="res://Assets/CraterCaverns-tiles/tiles.png" id="1_fnycf"]
 [ext_resource type="PackedScene" uid="uid://bcas706dngqvo" path="res://Player/Player.tscn" id="2_bipmv"]
 [ext_resource type="PackedScene" uid="uid://mcajsd4rgvrq" path="res://Interactables/Sample.tscn" id="3_lvbul"]
 [ext_resource type="PackedScene" uid="uid://qxx67kddndex" path="res://Interactables/Stim.tscn" id="4_nhida"]
-[ext_resource type="PackedScene" uid="uid://bm2wwthyvmgah" path="res://Interactables/AlienSpawner.tscn" id="5_c6543"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_epfhi"]
 texture = ExtResource("1_fnycf")
@@ -226,84 +225,11 @@ layer_1/tile_data = PackedInt32Array(1769473, 262144, 4, 2097160, 262144, 4, 209
 [node name="Sample" parent="." instance=ExtResource("3_lvbul")]
 position = Vector2(186, 149)
 
-[node name="Sample2" parent="." instance=ExtResource("3_lvbul")]
-position = Vector2(327, 341)
-
-[node name="Sample3" parent="." instance=ExtResource("3_lvbul")]
-position = Vector2(422, 217)
-
-[node name="Sample4" parent="." instance=ExtResource("3_lvbul")]
-position = Vector2(669, 222)
-
-[node name="Sample5" parent="." instance=ExtResource("3_lvbul")]
-position = Vector2(905, 194)
-
-[node name="Sample6" parent="." instance=ExtResource("3_lvbul")]
-position = Vector2(963, 277)
-
-[node name="Sample7" parent="." instance=ExtResource("3_lvbul")]
-position = Vector2(986, 386)
-
-[node name="Sample8" parent="." instance=ExtResource("3_lvbul")]
-position = Vector2(680, 403)
-
-[node name="Sample9" parent="." instance=ExtResource("3_lvbul")]
-position = Vector2(501, 371)
-
-[node name="Sample10" parent="." instance=ExtResource("3_lvbul")]
-position = Vector2(333, 468)
-
-[node name="Sample11" parent="." instance=ExtResource("3_lvbul")]
-position = Vector2(203, 413)
-
-[node name="Sample12" parent="." instance=ExtResource("3_lvbul")]
-position = Vector2(788, 472)
-
-[node name="Sample13" parent="." instance=ExtResource("3_lvbul")]
-position = Vector2(1004, 470)
-
-[node name="Sample14" parent="." instance=ExtResource("3_lvbul")]
-position = Vector2(809, 577)
+[node name="Player" parent="." instance=ExtResource("2_bipmv")]
+position = Vector2(144, 123)
 
 [node name="Stims" parent="." instance=ExtResource("4_nhida")]
-position = Vector2(418, 116.000015)
-
-[node name="Stims4" parent="." instance=ExtResource("4_nhida")]
-position = Vector2(967.99994, 487)
-
-[node name="Stims2" parent="." instance=ExtResource("4_nhida")]
-position = Vector2(707, 237)
-
-[node name="Stims3" parent="." instance=ExtResource("4_nhida")]
-position = Vector2(475, 351)
-
-[node name="Player" parent="." instance=ExtResource("2_bipmv")]
-position = Vector2(134, 132)
-
-[node name="Alien Spawner" parent="." instance=ExtResource("5_c6543")]
-position = Vector2(744, 378)
-
-[node name="Alien Spawner2" parent="." instance=ExtResource("5_c6543")]
-position = Vector2(531, 493)
-
-[node name="Alien Spawner3" parent="." instance=ExtResource("5_c6543")]
-position = Vector2(434, 196)
+position = Vector2(231.99998, 260.99997)
 
 [connection signal="body_entered" from="Sample" to="Player" method="_on_sample_body_entered"]
-[connection signal="body_entered" from="Sample2" to="Player" method="_on_sample_body_entered"]
-[connection signal="body_entered" from="Sample3" to="Player" method="_on_sample_body_entered"]
-[connection signal="body_entered" from="Sample4" to="Player" method="_on_sample_body_entered"]
-[connection signal="body_entered" from="Sample5" to="Player" method="_on_sample_body_entered"]
-[connection signal="body_entered" from="Sample6" to="Player" method="_on_sample_body_entered"]
-[connection signal="body_entered" from="Sample7" to="Player" method="_on_sample_body_entered"]
-[connection signal="body_entered" from="Sample8" to="Player" method="_on_sample_body_entered"]
-[connection signal="body_entered" from="Sample9" to="Player" method="_on_sample_body_entered"]
-[connection signal="body_entered" from="Sample10" to="Player" method="_on_sample_body_entered"]
-[connection signal="body_entered" from="Sample11" to="Player" method="_on_sample_body_entered"]
-[connection signal="body_entered" from="Sample12" to="Player" method="_on_sample_body_entered"]
-[connection signal="body_entered" from="Sample13" to="Player" method="_on_sample_body_entered"]
-[connection signal="body_entered" from="Sample14" to="Player" method="_on_sample_body_entered"]
 [connection signal="body_entered" from="Stims" to="Player" method="_on_stims_body_entered"]
-[connection signal="body_entered" from="Stims4" to="Player" method="_on_stims_body_entered"]
-[connection signal="body_entered" from="Stims2" to="Player" method="_on_stims_body_entered"]
-[connection signal="body_entered" from="Stims3" to="Player" method="_on_stims_body_entered"]
