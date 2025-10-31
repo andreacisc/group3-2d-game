@@ -14,7 +14,7 @@ const MAX_JUMPS: int = 2
 # Shooting / Gun Variables
 # -------------------------
 @export var BulletScene: PackedScene
-@export var fire_rate: float = 0.1      # seconds between shots (AK47 ~600 RPM)
+@export var fire_rate: float = 0.1      # seconds between shots
 @export var mag_size: int = 30          # magazine size
 @export var reload_time: float = 2.0    # reload duration (seconds)
 
@@ -49,7 +49,6 @@ func update_UI():
 	%Health.text = "HEALTH: " + str(Global.health) 
 	%Samples.text = "SAMPLES: " + str(Global.samples)
 	%Stims.text = "STIMS: " + str(Global.stims)
-	# Optional ammo display if you add a Label named "Ammo"
 	if has_node("%Ammo"):
 		%Ammo.text = "AMMO: " + str(current_ammo) + "/" + str(mag_size)
 
@@ -57,11 +56,9 @@ func update_UI():
 # Physics Process (Movement + Shooting)
 # -------------------------
 func _physics_process(delta: float) -> void:
-	# Apply gravity
 	if not is_on_floor():
 		velocity.y += gravity * delta
 
-	# Horizontal movement (A/D or Arrow Keys)
 	var input_dir := 0.0
 	if Input.is_action_pressed("move_left") or Input.is_action_pressed("ui_left"):
 		input_dir -= 1.0
@@ -69,7 +66,6 @@ func _physics_process(delta: float) -> void:
 		input_dir += 1.0
 	velocity.x = input_dir * move_speed
 
-	# Jump (W, Space, or Enter)
 	if (Input.is_action_just_pressed("jump") or Input.is_action_just_pressed("ui_accept")) and jump_count < MAX_JUMPS:
 		if jump_count == 0:
 			velocity.y = jump_force
@@ -78,33 +74,24 @@ func _physics_process(delta: float) -> void:
 		jump_count += 1
 		$Player_Sprite.play("Jump")
 
-	# Animation logic
 	if not is_on_floor():
 		$Player_Sprite.play("Jump")
 	elif input_dir != 0:
-		$Player_Sprite.play("Left")  # Use "Left" for both directions
-		$Player_Sprite.flip_h = input_dir > 0  # Flip when moving right
+		$Player_Sprite.play("Left")
+		$Player_Sprite.flip_h = input_dir > 0
 	else:
 		$Player_Sprite.play("Idle")
 
-	# Move the character
 	move_and_slide()
 	if is_on_floor():
 		jump_count = 0
 
-	# -------------------------
-	# Shooting Input
-	# -------------------------
 	if Input.is_action_pressed("shoot") and can_shoot and not reloading:
 		shoot()
 
-	# Manual reload
 	if Input.is_action_just_pressed("reload") and not reloading:
 		start_reload()
 
-	# -------------------------
-	# Stim Usage Input
-	# -------------------------
 	if Input.is_action_just_pressed("use_stim") and can_use_stim:
 		use_stim()
 
@@ -116,10 +103,8 @@ func _process(_delta: float) -> void:
 	var dir = (mouse_pos - $Gun.global_position).normalized()
 	$Gun.rotation = dir.angle()
 
-	# Flip the gun sprite vertically when aiming left
 	$Gun/Gun_image.flip_v = dir.x < 0
 
-	# Mirror the muzzle marker vertically when the sprite is flipped
 	if $Gun/Gun_image.flip_v:
 		$Gun/Marker2D.position = Vector2(muzzle_base_pos.x, -muzzle_base_pos.y)
 	else:
@@ -133,11 +118,15 @@ func shoot():
 		start_reload()
 		return
 
+	if not BulletScene:
+		print("BulletScene not assigned!")
+		return
+
 	var bullet = BulletScene.instantiate()
-	bullet.global_position = $Gun/Marker2D.global_position  # Marker2D at gun muzzle
+	bullet.global_position = $Gun/Marker2D.global_position
 	var dir = (get_global_mouse_position() - bullet.global_position).normalized()
 	bullet.direction = dir
-	bullet.shooter = self   # set shooter reference
+	bullet.shooter = self
 	get_parent().add_child(bullet)
 
 	current_ammo -= 1
@@ -149,10 +138,9 @@ func shoot():
 
 func start_reload():
 	if current_ammo == mag_size:
-		return # already full
+		return
 	reloading = true
 	can_shoot = false
-	# Play reload animation/sound here if you have one
 	await get_tree().create_timer(reload_time).timeout
 	current_ammo = mag_size
 	reloading = false
@@ -165,27 +153,37 @@ func start_reload():
 func use_stim():
 	if Global.stims > 0 and Global.health < 100:
 		Global.stims -= 1
-		Global.health = 100   # fully heal
+		Global.health = 100
 		update_UI()
 		can_use_stim = false
-		# Optional: play stim use animation or sound here
 		await get_tree().create_timer(stim_cooldown).timeout
 		can_use_stim = true
 
 # -------------------------
-# Handle collisions with pickups
+# Handle stim pickups
 # -------------------------
-func _on_body_entered(body: Node) -> void:
-	if body.is_in_group("stim"):
+func _on_stim_body_entered(body: Node2D) -> void:
+	if body.is_in_group("player"):
 		Global.stims += 1
+		print("Picked up stim. Total stims:", Global.stims)
 		update_UI()
-		body.queue_free()
-	elif body.is_in_group("sample"):
-		if body.has_meta("rarity"):
-			var rarity = body.get_meta("rarity")
+		body.queue_free()  # free the stim node, not the player
+
+# -------------------------
+# Handle sample pickups
+# -------------------------
+func _on_sample_body_entered(body: Node2D) -> void:
+	if body.is_in_group("player"):
+		if has_meta("rarity"):
+			var rarity = get_meta("rarity")
 			if Global.SAMPLE_VALUES.has(rarity):
 				Global.sample_score += Global.SAMPLE_VALUES[rarity]
 				Global.sample_count += 1
 				Global.sample_rarity_count[rarity] += 1
+				print("Picked up sample of rarity:", rarity)
+		else:
+			Global.samples += 1
+			print("Picked up generic sample. Total samples:", Global.samples)
+
 		update_UI()
-		body.queue_free()
+		sample.queue_free()  # free the sample node, not the player

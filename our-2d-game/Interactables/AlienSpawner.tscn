@@ -9,7 +9,11 @@
 script = ExtResource("1_io5y2")
 AlienScene = ExtResource("2_rjxjx")
 
-[node name="SpawnPoint" type="Marker2D" parent="."]
+[node name="SpawnPoint1" type="Marker2D" parent="."]
+
+[node name="SpawnPoint3" type="Marker2D" parent="."]
+
+[node name="SpawnPoint2" type="Marker2D" parent="."]
 
 [node name="SpawnTimer" type="Timer" parent="."]
 

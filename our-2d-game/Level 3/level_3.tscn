@@ -367,3 +367,10 @@ tile_set = SubResource("TileSet_16pka")
 
 [node name="Node2D" parent="Background" instance=ExtResource("2_j3dad")]
 position = Vector2(162, -23)
+move_speed = null
+jump_force = null
+gravity = null
+fire_rate = null
+mag_size = null
+reload_time = null
+stim_cooldown = null

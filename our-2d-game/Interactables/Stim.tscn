@@ -5,18 +5,17 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tdqmc"]
 size = Vector2(12, 20)
 
-[node name="Stim" type="Node2D"]
-
-[node name="Stims" type="Area2D" parent="." groups=["stim"]]
+[node name="Stims" type="Area2D" groups=["stim"]]
 position = Vector2(1.3552527e-20, 2.7105054e-20)
 scale = Vector2(0.99999994, 0.99999994)
 
-[node name="Sprite2D" type="Sprite2D" parent="Stims"]
+[node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(2.2737366e-13, 4.5474732e-13)
 scale = Vector2(0.46666676, 0.41346157)
 texture = ExtResource("1_tdqmc")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Stims"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(2.7105054e-20, 5.421011e-20)
 scale = Vector2(0.99999976, 0.99999976)
 shape = SubResource("RectangleShape2D_tdqmc")
