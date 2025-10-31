@@ -179,3 +179,7 @@ func respawn():
 
 	for enemy in get_tree().get_nodes_in_group("enemy"):
 		enemy.player_in_range = null
+
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	get_tree().change_scene_to_file("res://Level 3/level_3.tscn")

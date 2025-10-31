@@ -1,8 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://mpnqc2s6blh6"]
+[gd_scene load_steps=9 format=3 uid="uid://mpnqc2s6blh6"]
 
 [ext_resource type="Texture2D" uid="uid://bo0j7uihkda2e" path="res://Assets/CraterCaverns-tiles/tiles.png" id="1_fnycf"]
 [ext_resource type="PackedScene" uid="uid://bcas706dngqvo" path="res://Player/Player.tscn" id="2_bipmv"]
-[ext_resource type="PackedScene" uid="uid://mcajsd4rgvrq" path="res://Interactables/Sample.tscn" id="3_lvbul"]
+[ext_resource type="PackedScene" uid="uid://mcajsd4rgvrq" path="res://Interactables/sample.tscn" id="3_lvbul"]
 [ext_resource type="PackedScene" uid="uid://qxx67kddndex" path="res://Interactables/Stim.tscn" id="4_nhida"]
 [ext_resource type="PackedScene" uid="uid://bm2wwthyvmgah" path="res://Interactables/AlienSpawner.tscn" id="5_c6543"]
 
@@ -212,6 +212,9 @@ texture = ExtResource("1_fnycf")
 physics_layer_0/collision_layer = 3
 sources/0 = SubResource("TileSetAtlasSource_epfhi")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c6543"]
+size = Vector2(28, 15)
+
 [node name="Level 2" type="Node2D"]
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -289,6 +292,13 @@ position = Vector2(531, 493)
 [node name="Alien Spawner3" parent="." instance=ExtResource("5_c6543")]
 position = Vector2(434, 196)
 
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(1057, 644)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-1, 4.5)
+shape = SubResource("RectangleShape2D_c6543")
+
 [connection signal="body_entered" from="Sample" to="Player" method="_on_sample_body_entered"]
 [connection signal="body_entered" from="Sample2" to="Player" method="_on_sample_body_entered"]
 [connection signal="body_entered" from="Sample3" to="Player" method="_on_sample_body_entered"]
@@ -307,3 +317,4 @@ position = Vector2(434, 196)
 [connection signal="body_entered" from="Stims4" to="Player" method="_on_stims_body_entered"]
 [connection signal="body_entered" from="Stims2" to="Player" method="_on_stims_body_entered"]
 [connection signal="body_entered" from="Stims3" to="Player" method="_on_stims_body_entered"]
+[connection signal="body_entered" from="Area2D" to="Player" method="_on_area_2d_body_entered"]
