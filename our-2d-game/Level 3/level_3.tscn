@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=4 uid="uid://bfm414f4ojtx5"]
+[gd_scene load_steps=8 format=4 uid="uid://bfm414f4ojtx5"]
 
 [ext_resource type="Texture2D" uid="uid://bn2ury5kl3i8y" path="res://Assets/Tileset/level_tileset.png" id="1_lbnng"]
 [ext_resource type="PackedScene" uid="uid://bcas706dngqvo" path="res://Player/Player.tscn" id="2_j3dad"]
 [ext_resource type="PackedScene" uid="uid://qxx67kddndex" path="res://Interactables/Stim.tscn" id="3_1ig6v"]
 [ext_resource type="PackedScene" uid="uid://bm2wwthyvmgah" path="res://Interactables/AlienSpawner.tscn" id="4_m5ttm"]
+[ext_resource type="PackedScene" uid="uid://dwrgg6kvqjgyr" path="res://Interactables/Enemies.tscn" id="5_ahcmy"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1fhj5"]
 texture = ExtResource("1_lbnng")
@@ -392,22 +393,73 @@ position = Vector2(238, 511)
 position = Vector2(861, 134)
 
 [node name="Alien Spawner2" parent="." instance=ExtResource("4_m5ttm")]
-position = Vector2(324, 145)
-
-[node name="Alien Spawner3" parent="." instance=ExtResource("4_m5ttm")]
-position = Vector2(536, 80)
-
-[node name="Alien Spawner4" parent="." instance=ExtResource("4_m5ttm")]
-position = Vector2(245, 384)
-
-[node name="Alien Spawner6" parent="." instance=ExtResource("4_m5ttm")]
-position = Vector2(862, 383)
-
-[node name="Alien Spawner7" parent="." instance=ExtResource("4_m5ttm")]
-position = Vector2(622, 635)
+position = Vector2(677, 125)
 
 [node name="Alien Spawner8" parent="." instance=ExtResource("4_m5ttm")]
-position = Vector2(730, 564)
+position = Vector2(535, 79)
 
-[node name="Alien Spawner11" parent="." instance=ExtResource("4_m5ttm")]
-position = Vector2(930, 563)
+[node name="enemy" parent="." instance=ExtResource("5_ahcmy")]
+position = Vector2(727, 557)
+
+[node name="enemy2" parent="." instance=ExtResource("5_ahcmy")]
+position = Vector2(771, 558)
+
+[node name="enemy3" parent="." instance=ExtResource("5_ahcmy")]
+position = Vector2(831, 553)
+
+[node name="enemy4" parent="." instance=ExtResource("5_ahcmy")]
+position = Vector2(883, 548)
+
+[node name="enemy5" parent="." instance=ExtResource("5_ahcmy")]
+position = Vector2(919, 548)
+
+[node name="enemy6" parent="." instance=ExtResource("5_ahcmy")]
+position = Vector2(920, 514)
+
+[node name="enemy7" parent="." instance=ExtResource("5_ahcmy")]
+position = Vector2(869, 501.99994)
+rotation = 0.039852403
+
+[node name="enemy8" parent="." instance=ExtResource("5_ahcmy")]
+position = Vector2(817, 497)
+rotation = 0.039852403
+
+[node name="enemy9" parent="." instance=ExtResource("5_ahcmy")]
+position = Vector2(768.00006, 494)
+rotation = 0.039852403
+
+[node name="enemy10" parent="." instance=ExtResource("5_ahcmy")]
+position = Vector2(300, 491)
+rotation = 0.039852403
+
+[node name="enemy11" parent="." instance=ExtResource("5_ahcmy")]
+position = Vector2(353, 490)
+rotation = 0.039852403
+
+[node name="enemy12" parent="." instance=ExtResource("5_ahcmy")]
+position = Vector2(442.00003, 603)
+rotation = 0.039852403
+
+[node name="enemy13" parent="." instance=ExtResource("5_ahcmy")]
+position = Vector2(533, 603)
+rotation = 0.039852403
+
+[node name="enemy14" parent="." instance=ExtResource("5_ahcmy")]
+position = Vector2(601, 604)
+rotation = 0.039852403
+
+[node name="enemy15" parent="." instance=ExtResource("5_ahcmy")]
+position = Vector2(384, 375)
+rotation = 0.039852403
+
+[node name="enemy16" parent="." instance=ExtResource("5_ahcmy")]
+position = Vector2(482, 378.99997)
+rotation = 0.039852403
+
+[node name="enemy17" parent="." instance=ExtResource("5_ahcmy")]
+position = Vector2(813, 377)
+rotation = 0.039852403
+
+[node name="enemy18" parent="." instance=ExtResource("5_ahcmy")]
+position = Vector2(142.00006, 625)
+rotation = 0.039852403
