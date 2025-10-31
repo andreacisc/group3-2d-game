@@ -1,5 +1,7 @@
 extends Node2D
 
+@onready var sfx_mineral_pickup: AudioStreamPlayer = $"../astronaunt_player/sfx_mineral_pickup"
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -8,9 +10,11 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	$AnimatedSprite2D.play()
+	pass
 
 
-func _on_area_2d_body_entered(body: Node2D) -> void:
+func _on_area_2d_body_entered(body):
 	if body is Astronaunt:
-		$Label.visible = true
+		self.queue_free()
+		sfx_mineral_pickup.play()
+		

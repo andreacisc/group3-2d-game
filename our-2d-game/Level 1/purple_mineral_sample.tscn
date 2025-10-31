@@ -1,0 +1,69 @@
+[gd_scene load_steps=8 format=3 uid="uid://bxlslsmo12sll"]
+
+[ext_resource type="Script" uid="uid://ce4rnl47auto4" path="res://Level 1/purple_mineral_sample.gd" id="1_0nppx"]
+[ext_resource type="Texture2D" uid="uid://dykhbxxxkunkd" path="res://Level 1/item 16 x16.png" id="1_gmx44"]
+[ext_resource type="Script" uid="uid://c8ixav7irveyd" path="res://Level 1/mineral.gd" id="2_0nppx"]
+
+[sub_resource type="Animation" id="Animation_krkjg"]
+resource_name = "mineral_idle"
+length = 4.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sample_sprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2.0333333, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 1), Vector2(0, 0), Vector2(0, -1)]
+}
+
+[sub_resource type="Animation" id="Animation_5wvfr"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sample_sprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_162w5"]
+_data = {
+&"RESET": SubResource("Animation_5wvfr"),
+&"mineral_idle": SubResource("Animation_krkjg")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_cl7fq"]
+radius = 8.0
+
+[node name="purple_mineral_sample" type="Node2D"]
+script = ExtResource("1_0nppx")
+
+[node name="sample_sprite" type="Sprite2D" parent="."]
+scale = Vector2(1.1875, 1.1875)
+texture = ExtResource("1_gmx44")
+hframes = 10
+vframes = 4
+frame = 24
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_162w5")
+}
+script = ExtResource("2_0nppx")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_cl7fq")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

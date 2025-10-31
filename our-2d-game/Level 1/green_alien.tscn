@@ -1,0 +1,87 @@
+[gd_scene load_steps=12 format=3 uid="uid://u3gq2tvgky00"]
+
+[ext_resource type="Script" uid="uid://dqq2moteu8uq1" path="res://Level 1/green_alien.gd" id="1_fudnp"]
+[ext_resource type="Texture2D" uid="uid://buhaan23tcl5b" path="res://Level 1/alienguycute-Sheet.png" id="2_e2u8c"]
+[ext_resource type="FontFile" uid="uid://dp08aqtppd8ga" path="res://Assets/Fonts/Many Years Higher.ttf" id="3_e2u8c"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_u8e0w"]
+radius = 12.0
+height = 52.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qylp0"]
+atlas = ExtResource("2_e2u8c")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_av8n3"]
+atlas = ExtResource("2_e2u8c")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fcasb"]
+atlas = ExtResource("2_e2u8c")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2ev8t"]
+atlas = ExtResource("2_e2u8c")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_txww4"]
+atlas = ExtResource("2_e2u8c")
+region = Rect2(192, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xeysl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qylp0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_av8n3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fcasb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2ev8t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_txww4")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3qulm"]
+size = Vector2(55, 61)
+
+[node name="green_alien" type="Node2D"]
+script = ExtResource("1_fudnp")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+shape = SubResource("CapsuleShape2D_u8e0w")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_xeysl")
+frame = 4
+frame_progress = 0.64910966
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-1.5, -0.5)
+shape = SubResource("RectangleShape2D_3qulm")
+
+[node name="Label" type="Label" parent="."]
+visible = false
+offset_left = 26.0
+offset_top = -40.0
+offset_right = 85.0
+offset_bottom = -17.0
+theme_override_colors/font_color = Color(0.024226999, 0.62224114, 0.49235606, 1)
+theme_override_fonts/font = ExtResource("3_e2u8c")
+theme_override_font_sizes/font_size = 15
+text = "AHHHH"
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

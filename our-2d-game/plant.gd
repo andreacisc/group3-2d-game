@@ -1,5 +1,9 @@
 extends Node2D
 
+@onready var sfx_plant_pickup: AudioStreamPlayer = $"../astronaunt_player/sfx_plant_pickup"
+
+
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -11,6 +15,7 @@ func _process(delta: float) -> void:
 	$AnimatedSprite2D.play()
 
 
-func _on_area_2d_body_entered(body: Node2D) -> void:
+func _on_area_2d_body_entered(body):
 	if body is Astronaunt:
-		$Label.visible = true
+		self.queue_free()
+		sfx_plant_pickup.play()
