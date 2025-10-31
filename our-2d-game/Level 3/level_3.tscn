@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=4 uid="uid://bfm414f4ojtx5"]
+[gd_scene load_steps=9 format=4 uid="uid://bfm414f4ojtx5"]
 
 [ext_resource type="Texture2D" uid="uid://bn2ury5kl3i8y" path="res://Assets/Tileset/level_tileset.png" id="1_lbnng"]
 [ext_resource type="PackedScene" uid="uid://bcas706dngqvo" path="res://Player/Player.tscn" id="2_j3dad"]
 [ext_resource type="PackedScene" uid="uid://qxx67kddndex" path="res://Interactables/Stim.tscn" id="3_1ig6v"]
 [ext_resource type="PackedScene" uid="uid://bm2wwthyvmgah" path="res://Interactables/AlienSpawner.tscn" id="4_m5ttm"]
 [ext_resource type="PackedScene" uid="uid://dwrgg6kvqjgyr" path="res://Interactables/Enemies.tscn" id="5_ahcmy"]
+[ext_resource type="FontFile" uid="uid://dp08aqtppd8ga" path="res://Assets/Fonts/Many Years Higher.ttf" id="6_yr7bv"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1fhj5"]
 texture = ExtResource("1_lbnng")
@@ -463,3 +464,31 @@ rotation = 0.039852403
 [node name="enemy18" parent="." instance=ExtResource("5_ahcmy")]
 position = Vector2(142.00006, 625)
 rotation = 0.039852403
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="level_timer" type="Timer" parent="CanvasLayer"]
+wait_time = 180.0
+one_shot = true
+autostart = true
+
+[node name="timer_word" type="Label" parent="CanvasLayer"]
+offset_left = 1002.0
+offset_top = 18.0
+offset_right = 1107.0
+offset_bottom = 41.0
+theme_override_fonts/font = ExtResource("6_yr7bv")
+theme_override_font_sizes/font_size = 25
+text = "TIMER: "
+
+[node name="Level_timer_label" type="Label" parent="CanvasLayer/timer_word"]
+layout_mode = 0
+offset_left = 91.0
+offset_top = 1.0
+offset_right = 131.0
+offset_bottom = 24.0
+theme_override_fonts/font = ExtResource("6_yr7bv")
+theme_override_font_sizes/font_size = 25
+text = "0"
+
+[connection signal="timeout" from="CanvasLayer/level_timer" to="Background/Node2D" method="_on_level_timer_timeout"]

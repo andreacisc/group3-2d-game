@@ -102,6 +102,12 @@ func _physics_process(delta: float) -> void:
 # -------------------------
 # Gun Aiming (Cursor Follow)
 # -------------------------
+
+@onready var level_timer: Timer = $"../../CanvasLayer/level_timer"
+@onready var level_timer_label: Label = $"../../CanvasLayer/timer_word/Level_timer_label"
+
+
+
 func _process(_delta: float) -> void:
 	var mouse_pos = get_global_mouse_position()
 	var dir = (mouse_pos - $Gun.global_position).normalized()
@@ -113,6 +119,10 @@ func _process(_delta: float) -> void:
 		$Gun/Marker2D.position = Vector2(muzzle_base_pos.x, -muzzle_base_pos.y)
 	else:
 		$Gun/Marker2D.position = muzzle_base_pos
+	
+	if get_tree().current_scene.scene_file_path == "res://Level 3/level_3.tscn":
+		var time_left = int(level_timer.time_left)
+		level_timer_label.text = str(time_left)
 
 # -------------------------
 # Shooting Functions
@@ -183,3 +193,11 @@ func respawn():
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	get_tree().change_scene_to_file("res://Level 3/level_3.tscn")
+
+
+
+func _on_level_timer_timeout() -> void:
+	game_over()
+
+func game_over() -> void:
+	get_tree().change_scene_to_file("res://Level 3/game_over.tscn")

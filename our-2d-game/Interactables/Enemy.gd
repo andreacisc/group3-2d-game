@@ -20,6 +20,8 @@ func _ready():
 	player = get_tree().get_first_node_in_group("player")
 	current_health = max_health
 	change_state(State.IDLE)
+	
+	
 
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
