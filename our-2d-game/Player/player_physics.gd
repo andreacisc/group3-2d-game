@@ -131,6 +131,9 @@ func _process(_delta: float) -> void:
 	if get_tree().current_scene.scene_file_path == "res://Level 3/level_3.tscn":
 		var time_left = int(level_timer.time_left)
 		level_timer_label.text = str(time_left)
+		
+	if kills >= 23:
+		get_tree().change_scene_to_file("res://you_win.tscn")
 
 # -------------------------
 # Shooting Functions
