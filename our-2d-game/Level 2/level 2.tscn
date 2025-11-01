@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://bo0j7uihkda2e" path="res://Assets/CraterCaverns-tiles/tiles.png" id="1_fnycf"]
 [ext_resource type="PackedScene" uid="uid://bcas706dngqvo" path="res://Player/Player.tscn" id="2_bipmv"]
-[ext_resource type="PackedScene" uid="uid://mcajsd4rgvrq" path="res://Interactables/sample.tscn" id="3_lvbul"]
+[ext_resource type="PackedScene" uid="uid://mcajsd4rgvrq" path="res://Interactables/Sample.tscn" id="3_lvbul"]
 [ext_resource type="PackedScene" uid="uid://qxx67kddndex" path="res://Interactables/Stim.tscn" id="4_nhida"]
 [ext_resource type="PackedScene" uid="uid://bm2wwthyvmgah" path="res://Interactables/AlienSpawner.tscn" id="5_c6543"]
 

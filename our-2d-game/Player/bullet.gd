@@ -10,9 +10,14 @@ func _physics_process(delta: float) -> void:
 
 func _on_body_entered(body: Node2D) -> void:
 	print("Bullet hit:", body.name, " Groups:", body.get_groups())
+
+	if body == shooter:
+		return
+
 	if body.is_in_group("enemy"):
 		if body.has_method("take_damage"):
 			body.take_damage(damage, shooter)
 		queue_free()
+
 	elif not body.is_in_group("player"):
 		queue_free()

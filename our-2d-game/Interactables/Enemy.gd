@@ -20,8 +20,6 @@ func _ready():
 	player = get_tree().get_first_node_in_group("player")
 	current_health = max_health
 	change_state(State.IDLE)
-	
-	
 
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
@@ -91,9 +89,15 @@ func take_damage(amount: int, shooter: Node = null) -> void:
 		change_state(State.DEFEATED)
 		await anim.animation_finished
 		queue_free()
-		
+
+		if shooter and shooter.is_in_group("player"):
+			shooter.kills += 1
+			shooter.update_UI()
+
 func _on_area_2d__hitbox_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player") and state != State.DEFEATED:
+		body.health -= damage
+		body.update_UI()
 		player_in_range = body
 		start_attack_cycle()
 
@@ -103,9 +107,9 @@ func _on_area_2d__hitbox_body_exited(body: Node2D) -> void:
 
 func start_attack_cycle() -> void:
 	while player_in_range and state != State.DEFEATED:
-		if Global.health <= 0:
+		if player_in_range.health <= 0:
 			player_in_range = null
 			break
-		Global.health -= damage
+		player_in_range.health -= damage
 		player_in_range.update_UI()
-		await get_tree().create_timer(1.0).timeout 
+		await get_tree().create_timer(1.0).timeout

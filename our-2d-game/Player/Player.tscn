@@ -186,6 +186,13 @@ theme_override_colors/font_color = Color(0.13725491, 0.45490196, 1, 1)
 theme_override_fonts/font = ExtResource("4_ddoul")
 theme_override_font_sizes/font_size = 25
 
+[node name="Kills" type="Label" parent="CanvasLayer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.10306465, 0.46608222, 0.86719954, 1)
+theme_override_fonts/font = ExtResource("4_ddoul")
+theme_override_font_sizes/font_size = 25
+
 [node name="Gun" type="Node2D" parent="."]
 
 [node name="Gun_image" type="Sprite2D" parent="Gun"]

@@ -14,31 +14,39 @@ const MAX_JUMPS: int = 2
 # Shooting / Gun Variables
 # -------------------------
 @export var BulletScene: PackedScene
-@export var fire_rate: float = 0.1      # seconds between shots
-@export var mag_size: int = 30          # magazine size
-@export var reload_time: float = 2.0    # reload duration (seconds)
+@export var fire_rate: float = 0.1      
+@export var mag_size: int = 30          
+@export var reload_time: float = 2.0   
 
 var current_ammo: int
 var can_shoot: bool = true
 var reloading: bool = false
 
 # -------------------------
+# Player Stats (acting as global)
+# -------------------------
+var kills: int = 0
+var health: int = 100
+var samples: int = 0 
+var stims: int = 3
+
+# -------------------------
 # Stim Variables
 # -------------------------
-@export var stim_cooldown: float = 1.0   # seconds between stim uses
+@export var stim_cooldown: float = 1.0
 var can_use_stim: bool = true
 
 # -------------------------
 # Internal offsets
 # -------------------------
 var muzzle_base_pos: Vector2
-var spawn_point: Vector2   # NEW: store initial spawn position
+var spawn_point: Vector2
 
 # -------------------------
 # Ready
 # -------------------------
 func _ready():
-	spawn_point = global_position   # remember starting position
+	spawn_point = global_position
 	update_UI()
 	jump_count = 0
 	current_ammo = mag_size
@@ -48,18 +56,21 @@ func _ready():
 # UI Updates
 # -------------------------
 func update_UI():
-	%Health.text = "HEALTH: " + str(Global.health) 
-	%Samples.text = "SAMPLES: " + str(Global.samples)
-	%Stims.text = "STIMS: " + str(Global.stims)
+	%Kills.text = "KILLS: " + str(kills)
+	%Health.text = "HEALTH: " + str(health)
+	%Samples.text = "SAMPLES: " + str(samples)
+	%Stims.text = "(PRESS Q) STIMS: " + str(stims)
 	if has_node("%Ammo"):
 		%Ammo.text = "AMMO: " + str(current_ammo) + "/" + str(mag_size)
 
 # -------------------------
-# Physics Process (Movement + Shooting)
+# Physics Process
 # -------------------------
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity.y += gravity * delta
+	else:
+		velocity.y = 0
 
 	var input_dir := 0.0
 	if Input.is_action_pressed("move_left") or Input.is_action_pressed("ui_left"):
@@ -97,16 +108,13 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("use_stim") and can_use_stim:
 		use_stim()
 
-	check_health()  
+	check_health()
 
 # -------------------------
-# Gun Aiming (Cursor Follow)
+# Gun Aiming
 # -------------------------
-
 @onready var level_timer: Timer = $"../../CanvasLayer/level_timer"
 @onready var level_timer_label: Label = $"../../CanvasLayer/timer_word/Level_timer_label"
-
-
 
 func _process(_delta: float) -> void:
 	var mouse_pos = get_global_mouse_position()
@@ -162,12 +170,12 @@ func start_reload():
 	update_UI()
 
 # -------------------------
-# Stim Usage Function
+# Stim Usage
 # -------------------------
 func use_stim():
-	if Global.stims > 0 and Global.health < 100:
-		Global.stims -= 1
-		Global.health = 100
+	if stims > 0 and health < 100:
+		stims -= 1
+		health = 100
 		update_UI()
 		can_use_stim = false
 		await get_tree().create_timer(stim_cooldown).timeout
@@ -177,24 +185,21 @@ func use_stim():
 # Health / Respawn
 # -------------------------
 func check_health():
-	if Global.health <= 0:
-		Global.health = 0
+	if health <= 0:
+		health = 0
 		update_UI()
 		respawn()
 
 func respawn():
 	global_position = spawn_point
-	Global.health = 100
+	health = 100
 	update_UI()
 
 	for enemy in get_tree().get_nodes_in_group("enemy"):
 		enemy.player_in_range = null
 
-
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	get_tree().change_scene_to_file("res://Level 3/level_3.tscn")
-
-
 
 func _on_level_timer_timeout() -> void:
 	game_over()
